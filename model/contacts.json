@@ -48,7 +48,7 @@
     "phone": "(233) 738-2360"
   },
   {
-    "id": 9,
+    "id": "9",
     "name": "Thomas Lucas",
     "email": "nec@Nulla.com",
     "phone": "(704) 398-7993"
@@ -58,5 +58,29 @@
     "name": "Alec Howard",
     "email": "Donec.elementum@scelerisquescelerisquedui.net",
     "phone": "(748) 206-2688"
+  },
+  {
+    "id": "2a2dc47b-7efa-4db8-a599-5b8bf2672b09",
+    "name": "Toph Beifong",
+    "email": "greatest@earthbender.ek",
+    "phone": "(123) 456-7890"
+  },
+  {
+    "id": "87e5b223-9238-4ccd-b5eb-6de912cf805d",
+    "name": "Zuko Roku",
+    "email": "firelord@caldera.fn",
+    "phone": "(098) 765-4321"
+  },
+  {
+    "id": "631e72d4-4fc0-425a-9254-5fe9ca130eed",
+    "name": "Aang Gyatzo",
+    "email": "avatar@airnomad.com",
+    "phone": "(123) 987-4576"
+  },
+  {
+    "id": "db63603e-d748-41eb-805f-f9eb27c54722",
+    "name": "Katara Bossa",
+    "email": "bender@water.south",
+    "phone": "(852) 147-9630"
   }
 ]
