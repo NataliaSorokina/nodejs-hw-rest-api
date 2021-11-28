@@ -1,7 +1,7 @@
 const express = require('express')
-const { NotFound } = require('http-errors')
+const { NotFound, BadRequest } = require('http-errors')
 const Joi = require('joi')
-const { listContacts, getContactById, addContact, removeContact, updateContact } = require('../../model/controllers/contacts/index')
+const { listContacts, getById, addContact, removeContact, updateContact } = require('../../model/controllers/contacts/index')
 const router = express.Router()
 
 const contactSchema = Joi.object({
@@ -28,7 +28,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:contactId', async (req, res, next) => {
   try {
     const { contactId } = req.params
-    const contactById = await getContactById(contactId)
+    const contactById = await getById(contactId)
     if (!contactById) {
       throw NotFound(`Contact with id=${contactId} not found`)
     }
@@ -48,8 +48,7 @@ router.post('/', async (req, res, next) => {
   try {
     const { error } = contactSchema.validate(req.body)
     if (error) {
-      error.status = 400
-      throw error
+      throw BadRequest('Missing required name field')
     }
     const result = await addContact(req.body)
     res.status(201).json({
@@ -74,6 +73,7 @@ router.delete('/:contactId', async (req, res, next) => {
     res.json({
       status: 'success',
       code: 200,
+      message: `Contact with id=${contactId} deleted`,
       data: {
         result
       }
@@ -87,8 +87,7 @@ router.put('/:contactId', async (req, res, next) => {
   try {
     const { error } = contactSchema.validate(req.body)
     if (error) {
-      error.status = 400
-      throw error
+      throw BadRequest('Missing fields')
     }
     const { contactId } = req.params
     const result = await updateContact(contactId, req.body)
