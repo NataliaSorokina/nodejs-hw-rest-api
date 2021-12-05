@@ -1,12 +1,12 @@
-const { listContacts } = require('../../model/contacts/index')
+const { Contact } = require('../../models')
 
 const getContacts = async (req, res) => {
-  const contacts = await listContacts()
+  const result = await Contact.find({})
   res.json({
     status: 'success',
     code: 200,
     data: {
-      result: contacts
+      result
     }
   })
 }
