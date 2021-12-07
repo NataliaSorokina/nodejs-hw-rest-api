@@ -4,7 +4,7 @@ const { contacts } = require('../../controllers/index')
 const { validation, ctrlWrapper } = require('../../midllewares/index')
 
 const router = express.Router()
-const { joiSchema, favoriteJoiSchema } = require('../../models/contacts')
+const { joiSchema, favoriteJoiSchema } = require('../../models/contact')
 
 router.get('/', ctrlWrapper(contacts.getContacts))
 
