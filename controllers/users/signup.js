@@ -6,7 +6,7 @@ const signup = async (req, res) => {
   const { name, password, email } = req.body
   const user = await User.findOne({ email })
   if (user) {
-    throw Conflict(`Email ${email} in use`)
+    throw Conflict(`E-mail ${email} is already in use`)
   }
   // const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
   // /* const result =  */await User.create({ name, password: hashPassword, email })
