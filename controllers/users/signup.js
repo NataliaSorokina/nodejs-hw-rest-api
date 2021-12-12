@@ -9,7 +9,7 @@ const signup = async (req, res) => {
     throw Conflict(`E-mail ${email} is already in use`)
   }
   // const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
-  // /* const result =  */await User.create({ name, password: hashPassword, email })
+  // await User.create({ name, password: hashPassword, email })
   const newUser = new User({ name, email })
   newUser.setPassword(password)
   newUser.save()
