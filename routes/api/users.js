@@ -1,7 +1,6 @@
 const express = require('express')
 const { users } = require('../../controllers')
-const { validation, ctrlWrapper, auth } = require('../../midllewares')
-const upload = require('../../midllewares/upload')
+const { validation, ctrlWrapper, auth, upload } = require('../../midllewares')
 const router = express.Router()
 const { joiSignupSchema, joiLoginSchema, joiSubscriptionSchema } = require('../../models/user')
 

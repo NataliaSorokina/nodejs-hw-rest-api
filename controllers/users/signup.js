@@ -9,6 +9,7 @@ const signup = async (req, res) => {
     throw Conflict(`E-mail ${email} is already in use`)
   }
   const avatarURL = gravatar.url(email)
+
   const newUser = new User({ name, email, avatarURL })
   newUser.setPassword(password)
   newUser.save()
