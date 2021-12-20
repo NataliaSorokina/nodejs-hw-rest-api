@@ -25,6 +25,10 @@ const userSchema = Schema({
     type: String,
     default: null,
   },
+  avatarURL: {
+    type: String,
+    required: [true, 'Avatar is required']
+  },
 }, { versionKey: false, timestamps: true })
 
 userSchema.methods.setPassword = function (password) {
@@ -40,7 +44,8 @@ const joiSignupSchema = Joi.object({
   password: Joi.string().required(),
   email: Joi.string().required(),
   subscription: Joi.string().valid('starter', 'pro', 'business'),
-  token: Joi.boolean()
+  token: Joi.boolean(),
+  avatar: Joi.string()
 })
 
 const joiLoginSchema = Joi.object({
